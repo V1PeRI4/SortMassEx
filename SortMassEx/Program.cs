@@ -61,6 +61,7 @@ namespace SortMassEx
             Console.Write("\nНомер цеха для вывода информации: ");
             int manufactory = Convert.ToInt32(Console.ReadLine());
 
+
             // l - для переноса номера завода, temp - для сортировки
             int l = 0, temp;
 
