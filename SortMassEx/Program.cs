@@ -25,10 +25,10 @@ namespace SortMassEx
             //счетчик цехов, дальше как элемент условия для массива
             Console.Write("Количество цехов: ");
             int countManu = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n");
 
             //счетчик наименований, дальше как элемент условия для массива
-            Console.Write("Количество наименований: ");
-            int countAmount = Convert.ToInt32(Console.ReadLine());
+            int countAmount = 0;
 
 
             Production[,] prod = new Production[countManu, 50];
@@ -39,7 +39,10 @@ namespace SortMassEx
                 Console.Write("Номер цеха: ");
                 int count = Convert.ToInt32(Console.ReadLine());
 
-                    for (int j = 0; j < countAmount; j++)
+                Console.Write("Количество наименований: ");
+                countAmount = Convert.ToInt32(Console.ReadLine());
+
+                for (int j = 0; j < countAmount; j++)
                     {
                         prod[i, j] = new Production();
                         prod[i, 0].NumManufactory = count;
@@ -49,7 +52,9 @@ namespace SortMassEx
 
                         Console.Write("Количество изделий: ");
                         prod[i, j].Amount = Convert.ToInt32(Console.ReadLine());
-                    }
+                        Console.Write("\n");
+
+                }
              }
            
             //ввременная переменная для сравнения номера завода
@@ -63,7 +68,7 @@ namespace SortMassEx
             for (int i = 0; i < countManu; i++)
             {
                 if (prod[i, 0].NumManufactory == manufactory) { l = i; }
-                else if (l == 0) { Console.WriteLine("Ввели неверный номер завода..."); }
+                else if (0 > l || l > countManu) { Console.WriteLine("Ввели неверный номер завода..."); }
             }
 
             // сортировка по возрастанию
